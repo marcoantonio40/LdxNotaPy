@@ -1,7 +1,8 @@
 import sys
 
-def bt_click_Entrar():
-	print("Entrar")
+def bt_click_Entrar(login):
+	str(login)
+	
 
 def bt_click_Criar_Usu():
 	print("Criar")

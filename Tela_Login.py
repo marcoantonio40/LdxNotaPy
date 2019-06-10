@@ -9,13 +9,26 @@ janela = Tk()
 texto = Label(janela, text="LdxNota")
 texto.place(x=100, y=10)
 
-Entry_Login = Entry().pack()
-Entry_Senha = Entry().pack()
+Label_Login = Label(janela, text="Login: ")
+Label_Login.place(x=10, y=35)
 
-botao_Entrar = Button(janela, width=20,text="Entrar", command = bt_click_Entrar)
+Label_Senha = Label(janela, text="Senha: ")
+Label_Senha.place(x=10, y=60)
+
+Entry_Login = Entry(janela)
+Entry_Login.place(x=55, y=35)
+
+Entry_Senha = Entry(janela)
+Entry_Senha.place(x=55, y=60)
+
+login=self.Entry_Login.get()
+senha=Entry_Senha.get()
+print(login.title)
+
+botao_Entrar = Button(janela, width=20,text="Entrar", command = bt_click_Entrar(login))
 botao_Entrar.place(x=50, y=100)
 
-botao_Criar_Usu = Button(janela, width=20,text="Entrar", command = bt_click_Criar_Usu)
+botao_Criar_Usu = Button(janela, width=20,text="Criar", command = bt_click_Criar_Usu)
 botao_Criar_Usu.place(x=50, y=130)
 
 botao_Sair = Button(janela, width=20, text="Sair", command = quit)
