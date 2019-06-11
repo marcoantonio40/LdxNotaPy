@@ -3,6 +3,10 @@ from func_botao import bt_click_Entrar
 from func_botao import bt_click_Sair
 from func_botao import bt_click_Criar_Usu
 
+def bt_click_Teste():
+    login = Entry_Login.get()
+    bt_click_Entrar(login)
+
 
 janela = Tk()
 
@@ -21,11 +25,11 @@ Entry_Login.place(x=55, y=35)
 Entry_Senha = Entry(janela)
 Entry_Senha.place(x=55, y=60)
 
-login=self.Entry_Login.get()
+login=Entry_Login.get()
 senha=Entry_Senha.get()
-print(login.title)
 
-botao_Entrar = Button(janela, width=20,text="Entrar", command = bt_click_Entrar(login))
+
+botao_Entrar = Button(janela, width=20,text="Entrar", command = bt_click_Teste)
 botao_Entrar.place(x=50, y=100)
 
 botao_Criar_Usu = Button(janela, width=20,text="Criar", command = bt_click_Criar_Usu)

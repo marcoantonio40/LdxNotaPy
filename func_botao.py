@@ -1,7 +1,7 @@
 import sys
 
 def bt_click_Entrar(login):
-	str(login)
+	print(login)
 	
 
 def bt_click_Criar_Usu():
