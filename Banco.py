@@ -15,6 +15,11 @@ def Valida_Login(login, senha):
 	cursor = con.cursor()
 	cursor.execute("SELECT COUNT(*) FROM TUSUARIOS WHERE DSLOGIN = ? AND DSSENH = ?;",(login,senha))
 	resultado = cursor.fetchmany(0)
-	print(resultado)
+	x = resultado[0]
+	if(x[0]==0):
+		return False
+	else:
+		return True
+	
 
-Valida_Login("marco","12345")
+

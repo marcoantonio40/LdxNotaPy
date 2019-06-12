@@ -5,9 +5,10 @@ from func_botao import bt_click_Criar_Usu
 
 def bt_click_Teste():
     login = Entry_Login.get()
-    bt_click_Entrar(login)
+    senha = Entry_Senha.get()
+    bt_click_Entrar(login,senha)
 
-
+	
 janela = Tk()
 
 texto = Label(janela, text="LdxNota")
