@@ -2,6 +2,7 @@ from tkinter import *
 from func_botao import bt_click_Entrar
 from func_botao import bt_click_Sair
 from func_botao import bt_click_Criar_Usu
+import sys
 
 def bt_click_Teste():
     login = Entry_Login.get()
