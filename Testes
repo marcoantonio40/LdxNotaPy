@@ -30,4 +30,32 @@ def in_array(nomeSe, vetor):
 in_array(nomeSe, vetor)
 
 
+===================================================================================
 
+def greet(language):
+	dicionario = {
+	'english': 'Welcome',
+    'czech': 'Vitejte',
+    'danish': 'Velkomst',
+    'dutch': 'Welkom',
+    'estonian': 'Tere tulemast',
+    'finnish': 'Tervetuloa',
+    'flemish': 'Welgekomen',
+    'french': 'Bienvenue',
+    'german': 'Willkommen',
+    'irish': 'Failte',
+    'italian': 'Benvenuto',
+    'latvian': 'Gaidits',
+    'lithuanian': 'Laukiamas',
+    'polish': 'Witamy',
+    'spanish': 'Bienvenido',
+    'swedish': 'Valkommen',
+    'welsh': 'Croeso'}
+	
+	for e in dicionario.values():
+		if dicionario[language] == e
+			print(dicionario[language])
+	
+
+	
+greet('german')
