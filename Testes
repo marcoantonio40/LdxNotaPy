@@ -2,3 +2,32 @@ x = resultado[0].cursor.fetchmany(0)
 
 def Sair():
     janela.quit()
+
+===================================================================
+import re
+
+nome = input("digite a palavra: ")
+palavras = input("Digite do vetor: ")
+
+vetor = palavras.split()
+nomeSe = nome.split()
+
+
+def in_array(nomeSe, vetor):
+	resultado=[]
+	tamanhoVe = len(vetor)
+	tamanhoNo = len(nomeSe)
+	x = 0
+	y = 0
+	while(x < tamanhoVe):
+		while(y < tamanhoNo):
+			if re.search(nomeSe[y], vetor[x], re.IGNORECASE):
+				resultado.append(nomeSe[y])
+			y = y+1
+		x = x+1
+		
+	print(resultado)
+in_array(nomeSe, vetor)
+
+
+
