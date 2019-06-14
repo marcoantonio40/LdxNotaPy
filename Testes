@@ -59,3 +59,31 @@ def greet(language):
 
 	
 greet('german')
+
+
+==============================================================================================================
+
+import re
+
+nome = input("digite a palavra: ")
+palavras = input("Digite do vetor: ")
+
+vetor = palavras.split()
+nomeSe = nome.split()
+
+
+def in_array(nomeSe, vetor):
+resultado=[]
+tamanhoVe = len(vetor)
+tamanhoNo = len(nomeSe)
+x = 0
+while(x < tamanhoVe):
+for y in range (0, tamanhoNo):
+if re.search(nomeSe[y], vetor[x], re.IGNORECASE):
+resultado.append(nomeSe[y])
+x = x+1
+return resultado
+print (in_array(nomeSe, vetor))
+agora ta funcionando
+
+era o while mesmo
