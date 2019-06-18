@@ -20,6 +20,17 @@ def Valida_Login(login, senha):
 		return False
 	else:
 		return True
-	
 
+def Ultimo_Cod_Usu():
+	con = Cria_Banco()
+	cursor = con.cursor()
+	cursor.execute("SELECT MAX(CDUSU)+1 FROM TUSUARIOS;")
+	codigo = resultado[0].cursor.fetchmany(0)
+	return codigo
+
+		
+def Insere_Usuario(nome, login, senha):
+	con = Cria_Banco()
+	cursor = con.cursor()
+	cursor.execute("INSERT TUSUARIOS VALUES (?, ?, ?, ?);",(Ultimo_Cod_Usu(), nome, login, senha))
 

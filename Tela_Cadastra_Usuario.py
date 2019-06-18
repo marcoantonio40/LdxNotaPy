@@ -1,4 +1,7 @@
 from tkinter import *
+from Banco import Insere_Usuario
+
+
 
 def Tela_Cadastra():
 	janela = Tk()
@@ -23,8 +26,12 @@ def Tela_Cadastra():
 
 	Entry_Senha_Usu = Entry(janela)
 	Entry_Senha_Usu.place(x=90, y=100)
+	
+	nome=Entry_Nome_Usu.get()
+	login=Entry_Login_Usu.get()
+	senha=Entry_Senha_Usu.get()
 
-	botao_Cadastrar_Usu = Button(janela, width=20,text="Cadastrar", command = print("Cadas"))
+	botao_Cadastrar_Usu = Button(janela, width=20,text="Cadastrar", command = Insere_Usuario(nome, login, senha))
 	botao_Cadastrar_Usu.place(x=50, y=140)
 
 	botao_Voltar_Usu = Button(janela, width=20,text="Voltar", command = print("Voltar"))

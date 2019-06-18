@@ -9,6 +9,7 @@ def bt_click_Teste():
     senha = Entry_Senha.get()
     bt_click_Entrar(login,senha)
 
+
 	
 janela = Tk()
 
