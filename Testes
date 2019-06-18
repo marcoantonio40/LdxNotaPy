@@ -3,3 +3,4 @@ x = resultado[0].cursor.fetchmany(0)
 def Sair():
     janela.quit()
 
+janela.destroy()
