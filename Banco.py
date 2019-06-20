@@ -25,12 +25,21 @@ def Ultimo_Cod_Usu():
 	con = Cria_Banco()
 	cursor = con.cursor()
 	cursor.execute("SELECT MAX(CDUSU)+1 FROM TUSUARIOS;")
-	codigo = resultado[0].cursor.fetchmany(0)
-	return codigo
+	resultado = cursor.fetchmany(0)
+	x = resultado[0]
+	return x[0]
 
 		
-def Insere_Usuario(nome, login, senha):
+def Insere_Usuario(codigo,nome, login, senha):
 	con = Cria_Banco()
 	cursor = con.cursor()
-	cursor.execute("INSERT TUSUARIOS VALUES (?, ?, ?, ?);",(Ultimo_Cod_Usu(), nome, login, senha))
-
+	#cursor.execute("INSERT INTO TUSUARIOS VALUES (?, ?, ?, ?);",(Ultimo_Cod_Usu(), nome, login, senha))
+	
+	query_Insert = '''INSERT INTO TUSUARIOS (CDUSU, DSNOME, DSLOGIN, DSSENH) VALUES (?, ?, ?, ?);'''
+	query_Tuple = (codigo, nome, login, senha)
+	cursor.execute(query_Insert, query_Tuple)
+	cursor.lastrowid
+	
+	
+	
+	

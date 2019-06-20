@@ -4,11 +4,7 @@ from Banco import Insere_Usuario
 
 
 def Tela_Cadastra():
-	def Insere():
-		nome=Entry_Nome_Usu.get()
-		login=Entry_Login_Usu.get()
-		senha=Entry_Senha_Usu.get()
-		Insere_Usuario(nome, login, senha)
+	
 	
 	janela = Tk()
 	
@@ -33,7 +29,12 @@ def Tela_Cadastra():
 	Entry_Senha_Usu = Entry(janela)
 	Entry_Senha_Usu.place(x=90, y=100)
 	
-	
+	def Insere():
+		nome=Entry_Nome_Usu.get()
+		login=Entry_Login_Usu.get()
+		senha=Entry_Senha_Usu.get()
+		codigo="2"
+		Insere_Usuario(codigo ,nome, login, senha)
 
 	botao_Cadastrar_Usu = Button(janela, width=20,text="Cadastrar", command = Insere)
 	botao_Cadastrar_Usu.place(x=50, y=140)
