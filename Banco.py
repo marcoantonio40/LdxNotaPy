@@ -30,15 +30,12 @@ def Ultimo_Cod_Usu():
 	return x[0]
 
 		
-def Insere_Usuario(codigo,nome, login, senha):
+def Insere_Usuario(nome, login, senha):
 	con = Cria_Banco()
 	cursor = con.cursor()
-	#cursor.execute("INSERT INTO TUSUARIOS VALUES (?, ?, ?, ?);",(Ultimo_Cod_Usu(), nome, login, senha))
+	cursor.execute("INSERT INTO TUSUARIOS (CDUSU, DSNOME, DSLOGIN, DSSENH) VALUES (?, ?, ?, ?);",(Ultimo_Cod_Usu(), nome, login, senha))
+	con.commit()
 	
-	query_Insert = '''INSERT INTO TUSUARIOS (CDUSU, DSNOME, DSLOGIN, DSSENH) VALUES (?, ?, ?, ?);'''
-	query_Tuple = (codigo, nome, login, senha)
-	cursor.execute(query_Insert, query_Tuple)
-	cursor.lastrowid
 	
 	
 	
