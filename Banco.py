@@ -11,9 +11,10 @@ def Cria_Banco():
 		print("Banco de dados não existe!")
 
 def Valida_Login(login, senha):
+	senha_Crip = criptografar(senha)
 	con = Cria_Banco()
 	cursor = con.cursor()
-	cursor.execute("SELECT COUNT(*) FROM TUSUARIOS WHERE DSLOGIN = ? AND DSSENH = ?;",(login,senha))
+	cursor.execute("SELECT COUNT(*) FROM TUSUARIOS WHERE DSLOGIN = ? AND DSSENH = ?;",(login,senha_Crip))
 	resultado = cursor.fetchmany(0)
 	x = resultado[0]
 	if(x[0]==0):
@@ -31,12 +32,20 @@ def Ultimo_Cod_Usu():
 
 		
 def Insere_Usuario(nome, login, senha):
+	senha_Crip = criptografar(senha)
 	con = Cria_Banco()
 	cursor = con.cursor()
-	cursor.execute("INSERT INTO TUSUARIOS (CDUSU, DSNOME, DSLOGIN, DSSENH) VALUES (?, ?, ?, ?);",(Ultimo_Cod_Usu(), nome, login, senha))
-	con.commit()
+	if nome != "" or login !="" or senha !="":
+		cursor.execute("INSERT INTO TUSUARIOS (CDUSU, DSNOME, DSLOGIN, DSSENH) VALUES (?, ?, ?, ?);",(Ultimo_Cod_Usu(), nome, login, senha_Crip))
+		con.commit()
+	else:
+		import ctypes  
+		ctypes.windll.user32.MessageBoxW(0, "Dados vazios", "Erro", 0)
 	
-	
-	
+def criptografar(senha):
+	import hashlib
+	hash_obj = hashlib.md5(senha.encode())
+	return hash_obj.hexdigest()	
+
 	
 	

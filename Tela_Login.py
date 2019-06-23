@@ -6,9 +6,12 @@ import sys
 
 def bt_click_Teste():
     login = Entry_Login.get()
-    senha = Entry_Senha.get()
+    senha = Entry_Senha.get()	
     bt_click_Entrar(login,senha)
-
+	
+    
+def fechar_Janela():	
+	janela.destroy()
 
 	
 janela = Tk()
@@ -38,7 +41,7 @@ botao_Entrar.place(x=50, y=100)
 botao_Criar_Usu = Button(janela, width=20,text="Criar", command = bt_click_Criar_Usu)
 botao_Criar_Usu.place(x=50, y=130)
 
-botao_Sair = Button(janela, width=20, text="Sair", command = quit)
+botao_Sair = Button(janela, width=20, text="Sair", command = fechar_Janela)
 botao_Sair.place(x=50, y=160)
 
 
