@@ -4,3 +4,7 @@ def Sair():
     janela.quit()
 
 janela.destroy()
+
+
+fechar o banco
+con.close()
