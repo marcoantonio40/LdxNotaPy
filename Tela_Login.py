@@ -4,11 +4,13 @@ from func_botao import bt_click_Sair
 from func_botao import bt_click_Criar_Usu
 import sys
 
-def bt_click_Teste():
+def Click_Entrar():
     login = Entry_Login.get()
     senha = Entry_Senha.get()	
     bt_click_Entrar(login,senha)
-	
+
+def Click_Cadastra_Usuario():
+	bt_click_Criar_Usu()
     
 def fechar_Janela():	
 	janela.destroy()
@@ -35,10 +37,10 @@ login=Entry_Login.get()
 senha=Entry_Senha.get()
 
 
-botao_Entrar = Button(janela, width=20,text="Entrar", command = bt_click_Teste)
+botao_Entrar = Button(janela, width=20,text="Entrar", command = Click_Entrar)
 botao_Entrar.place(x=50, y=100)
 
-botao_Criar_Usu = Button(janela, width=20,text="Criar", command = bt_click_Criar_Usu)
+botao_Criar_Usu = Button(janela, width=20,text="Cadastrar Usuário", command = Click_Cadastra_Usuario)
 botao_Criar_Usu.place(x=50, y=130)
 
 botao_Sair = Button(janela, width=20, text="Sair", command = fechar_Janela)

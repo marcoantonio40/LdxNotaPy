@@ -41,11 +41,12 @@ def Insere_Usuario(nome, login, senha):
 	else:
 		import ctypes  
 		ctypes.windll.user32.MessageBoxW(0, "Dados vazios", "Erro", 0)
-	
+
+		
 def criptografar(senha):
 	import hashlib
 	hash_obj = hashlib.md5(senha.encode())
 	return hash_obj.hexdigest()	
 
-	
+
 	
