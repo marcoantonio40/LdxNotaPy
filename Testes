@@ -8,3 +8,5 @@ janela.destroy()
 
 fechar o banco
 con.close()
+
+serenity framework
