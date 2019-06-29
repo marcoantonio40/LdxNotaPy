@@ -48,5 +48,25 @@ def criptografar(senha):
 	hash_obj = hashlib.md5(senha.encode())
 	return hash_obj.hexdigest()	
 
+def Retorna_Codigo_Usuario(login,senha):
+	senha_Crip = criptografar(senha)
+	con = Cria_Banco()
+	cursor = con.cursor()
+	cursor.execute("SELECT CDUSU FROM TUSUARIOS WHERE DSLOGIN = ? AND DSSENH = ?;",(login,senha_Crip))
+	resultado = cursor.fetchmany(0)
+	return resultado[0]
+	 
+	
+	
+def Notas_Usuario(usuario):
+	con = Cria_Banco()
+	cursor = con.cursor()
+	cursor.execute("SELECT CDNOTA, CDUSU, DSTITU, DSNOTA, DTNOTA FROM TNOTAS WHERE CDUSU = ?;",(usuario))
+	resultado = cursor.fetchmany(0)
+	x = resultado[0]
+	return x
+	
+	
+
 
 	
