@@ -55,16 +55,25 @@ def Retorna_Codigo_Usuario(login,senha):
 	cursor.execute("SELECT CDUSU FROM TUSUARIOS WHERE DSLOGIN = ? AND DSSENH = ?;",(login,senha_Crip))
 	resultado = cursor.fetchmany(0)
 	return resultado[0]
-	 
-	
+	 	
 	
 def Notas_Usuario(usuario):
 	con = Cria_Banco()
 	cursor = con.cursor()
 	cursor.execute("SELECT CDNOTA, CDUSU, DSTITU, DSNOTA, DTNOTA FROM TNOTAS WHERE CDUSU = ?;",(usuario))
 	resultado = cursor.fetchmany(0)
+	return resultado
+	
+def Quantas_Notas_Usuario(usuario):
+	con = Cria_Banco()
+	cursor = con.cursor()
+	cursor.execute("SELECT COUNT(*) FROM TNOTAS WHERE CDUSU = ?;", (usuario))
+	resultado = cursor.fetchmany(0)
 	x = resultado[0]
-	return x
+	return x[0]
+	
+	
+	
 	
 	
 
