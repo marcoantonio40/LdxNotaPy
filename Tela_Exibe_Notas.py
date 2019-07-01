@@ -1,7 +1,13 @@
 from tkinter import *
 from Banco import *
+from Tela_Cadastrar_Nota import *
+
+
 
 def Tela_Exibe_Notas(codigo_Usu):
+	def Tela_Cadastrar():
+		Tela_Cadastrar_Nota(codigo_Usu)
+		
 	janela = Tk()
 	janela.geometry("675x400+400+400")
 	
@@ -49,7 +55,7 @@ def Tela_Exibe_Notas(codigo_Usu):
 			Label5.grid(row=item+1,column=4)
 		
 	
-	botao_Cadastrar_Nota = Button(janela, width=20,text="Cadastrar Nota", command = print("Cadastrar nota"))
+	botao_Cadastrar_Nota = Button(janela, width=20,text="Cadastrar Nota", command = Tela_Cadastrar)
 	botao_Cadastrar_Nota.place(x=20, y=370)
 		
 	botao_Editar_Nota = Button(janela, width=20, text="Editar", command = print("Editar Nota"))
@@ -60,4 +66,8 @@ def Tela_Exibe_Notas(codigo_Usu):
 	
 	botao_Sair = Button(janela, width=20,text="SAIR", command = print("Sair"))
 	botao_Sair.place(x=500, y=370)
+	
+	
+	
+	
 	

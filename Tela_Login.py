@@ -5,7 +5,6 @@ from func_botao import bt_click_Criar_Usu
 import sys
 
 
-
 def Click_Entrar():
     login = Entry_Login.get()
     senha = Entry_Senha.get()	

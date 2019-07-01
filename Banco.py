@@ -2,6 +2,7 @@
 ##marco
 import sqlite3 
 import os.path
+import ctypes  
 
 def Cria_Banco():
 	if(os.path.exists('C:\csharp\Python\dadosPy.sqlite')):
@@ -35,11 +36,10 @@ def Insere_Usuario(nome, login, senha):
 	senha_Crip = criptografar(senha)
 	con = Cria_Banco()
 	cursor = con.cursor()
-	if nome != "" or login !="" or senha !="":
+	if nome != "" and login != "" and senha != "":
 		cursor.execute("INSERT INTO TUSUARIOS (CDUSU, DSNOME, DSLOGIN, DSSENH) VALUES (?, ?, ?, ?);",(Ultimo_Cod_Usu(), nome, login, senha_Crip))
 		con.commit()
 	else:
-		import ctypes  
 		ctypes.windll.user32.MessageBoxW(0, "Dados vazios", "Erro", 0)
 
 		
@@ -71,6 +71,36 @@ def Quantas_Notas_Usuario(usuario):
 	resultado = cursor.fetchmany(0)
 	x = resultado[0]
 	return x[0]
+
+def Ultimo_Cod_Nota():
+	con = Cria_Banco()
+	cursor = con.cursor()
+	cursor.execute("SELECT MAX(CDNOTA)+1 FROM TNOTAS;")
+	resultado = cursor.fetchmany(0)
+	x = resultado[0]
+	return x[0]
+
+def Data_Nota():
+	con = Cria_Banco()
+	cursor = con.cursor()
+	cursor.execute("SELECT DATETIME();")
+	resultado = cursor.fetchmany(0)
+	x = resultado[0]
+	return x[0]
+
+	
+def Insere_Nota(usuario, titulo, descricao):
+	con = Cria_Banco()
+	cursor = con.cursor()
+	print(usuario[0])
+	print(titulo)
+	print(descricao)
+	if usuario != "" and titulo != "" and descricao != "":
+		cursor.execute("INSERT INTO TNOTAS VALUES (?, ?, ?, ?, ?);",(Ultimo_Cod_Nota(), usuario[0],
+		titulo, descricao, Data_Nota()))
+		con.commit()
+	else:
+		ctypes.windll.user32.MessageBoxW(0, "Dados vazios", "Erro", 0)
 	
 	
 	
