@@ -4,7 +4,8 @@ from func_botao import bt_click_Sair
 from func_botao import bt_click_Criar_Usu
 import sys
 
-
+#Método utilizado para entrar na tela Tela_Exibe_Notas
+#esse método é acionado quando o usuário clicar no botão botao_Entrar
 def Click_Entrar():
     login = Entry_Login.get()
     senha = Entry_Senha.get()	
