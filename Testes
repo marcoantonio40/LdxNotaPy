@@ -10,3 +10,73 @@ fechar o banco
 con.close()
 
 serenity framework
+========================================================================================================================================================
+========================================================================================================================================================
+from tkinter.filedialog import askopenfilename
+from tkinter import *
+import sqlite3 
+import os.path
+
+janela = Tk()
+
+janela.geometry("250x250+250+250")
+
+texto = Label(janela, text="")
+texto.place(x=100, y=10)
+
+
+###########################################################################################
+######################## funções e métodos ################################################
+###########################################################################################
+
+def Cria_Banco():
+        caminho = texto.text
+        caminho = caminho.replace("/","\\")
+	if(os.path.exists('C:\\Users\\Landix\\Desktop\\python\\dados.db3')):
+		conn = sqlite3.connect('dados.db3')
+		print("Banco de dados existe!")
+		return conn
+	else:
+		print("Banco de dados não existe!")
+
+
+def Retorna_Resultado(tamanho):
+	con = Cria_Banco()
+	cursor = con.cursor()
+	cursor.execute("SELECT * FROM TMVSPAGTO;")
+	resultado = cursor.fetchmany(0)
+	x = resultado[0]
+	query="INSERT INTO TMVSPAGTO (CDNEG, NUPARC, NUPGT, DTVENC, VLPGTO, IDBOCH, CDMW) VALUES ("
+	for y in range(7):
+				teste=x[y]
+				query=query+str(teste)
+				
+	print(query)
+	
+def Pega_Banco():
+	Tk().withdraw() # Isto torna oculto a janela principal
+	filename = askopenfilename() # Isto te permite selecionar um arquivo
+	return filename 
+
+def Pega_Caminho_Banco():
+        caminho=Pega_Banco()
+        texto = Label(janela, text=caminho)
+        texto.place(x=5, y=210)
+        return caminho
+        
+###########################################################################################
+######################## Botões e labels ##################################################
+###########################################################################################
+
+
+
+botao_Entrar = Button(janela, width=20,text="Escolher banco", command = Pega_Caminho_Banco)
+botao_Entrar.place(x=50, y=100)
+
+botao_Criar_Usu = Button(janela, width=20,text="Gerar query", command = print("Gerar query"))
+botao_Criar_Usu.place(x=50, y=130)
+
+botao_Sair = Button(janela, width=20, text="Sair", command = quit)
+botao_Sair.place(x=50, y=160)
+
+
