@@ -1,7 +1,7 @@
 from tkinter import *
 from Banco import *
 from Tela_Cadastrar_Nota import *
-
+from Tela_Relatorio import Exibe_Notas
 
 
 def Tela_Exibe_Notas(codigo_Usu):
@@ -11,6 +11,10 @@ def Tela_Exibe_Notas(codigo_Usu):
 	janela = Tk()
 	janela.geometry("675x400+400+400")
 	
+	def Ver_Relatorio():
+		#notas = Notas_Usuario(codigo_Usu)
+		#Exibe_Notas(notas)
+		Exibe_Notas()
 	
 	Label_Codigo = Label(janela, text=" Código Nota ", bg="blue", fg="white")
 	Label_Usuario = Label(janela, text="   Usuário   ", bg="blue", fg="white")
@@ -55,8 +59,8 @@ def Tela_Exibe_Notas(codigo_Usu):
 			Label5.grid(row=item+1,column=4)
 		
 	
-	botao_Cadastrar_Nota = Button(janela, width=20,text="Cadastrar Nota", command = Tela_Cadastrar)
-	botao_Cadastrar_Nota.place(x=20, y=370)
+	botao_Ver_Nota = Button(janela, width=20,text="Relatório de notas", command = Ver_Relatorio)
+	botao_Ver_Nota.place(x=20, y=370)
 		
 	botao_Editar_Nota = Button(janela, width=20, text="Editar", command = print("Editar Nota"))
 	botao_Editar_Nota.place(x=180, y=370)
