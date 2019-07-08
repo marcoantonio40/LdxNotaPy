@@ -4,17 +4,19 @@ from Tela_Cadastrar_Nota import *
 from gridview import Table
 import sys
 
+
 try:
-    from Tkinter import Frame, Label, Message, StringVar
-    from Tkconstants import *
-    from Tkinter import Tk
+	from Tkinter import Frame, Label, Message, StringVar
+	from Tkconstants import *
+	from Tkinter import Tk
 except ImportError:
-    from tkinter import Tk
-    from tkinter import Frame, Label, Message, StringVar
-    from tkinter.constants import *
-def Exibe_Notas():
+	from tkinter import Tk
+	from tkinter import Frame, Label, Message, StringVar
+	from tkinter.constants import *
+
+def Exibe_Notas():		
 	janela = Tk()
-	notas = Notas_Usuario("4")
+	notas = Notas_Usuario()
 	table = Table(janela, ["Código Nota", "Usuário", "Título","Descrição", "Data"])
 	table.pack(expand=True,fill=X, padx=10,pady=10)
 	
@@ -25,3 +27,10 @@ def Exibe_Notas():
 	
 	
 	janela.mainloop()
+	
+
+
+
+	
+	
+

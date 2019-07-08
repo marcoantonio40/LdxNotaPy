@@ -67,10 +67,10 @@ def Retorna_Codigo_Usuario(login,senha):
 	 	
 #Método para retornar as notas de um usuário para exibir na tela
 #Tela_Exibe_Notas	
-def Notas_Usuario(usuario):
+def Notas_Usuario():
 	con = Cria_Banco()
 	cursor = con.cursor()
-	cursor.execute("SELECT CDNOTA, CDUSU, DSTITU, DSNOTA, DTNOTA FROM TNOTAS WHERE CDUSU = ?;",(usuario))
+	cursor.execute("SELECT CDNOTA, CDUSU, DSTITU, DSNOTA, DTNOTA FROM TNOTAS;")
 	resultado = cursor.fetchmany(0)
 	return resultado
 
