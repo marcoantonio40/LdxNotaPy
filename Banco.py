@@ -118,8 +118,25 @@ def Insere_Nota(usuario, titulo, descricao):
 		con.commit()
 	else:
 		ctypes.windll.user32.MessageBoxW(0, "Dados vazios", "Erro", 0)
+
+#Método para consultar no banco de dados se uma nota
+#existe e assim poder editar ou apagá-la na tela Tela_Exibe_Notas		
+def Verifica_Nota_Existe(codigo):
+	con = Cria_Banco()
+	cursor = con.cursor()
+	cursor.execute("SELECT COUNT(*) FROM TNOTAS WHERE CDNOTA = ?;",(codigo))
+	resultado = cursor.fetchmany(0)
+	x = resultado[0]
+	return x[0]
 	
 	
+def Nota_Usuario(codigo):
+	con = Cria_Banco()
+	cursor = con.cursor()
+	cursor.execute("SELECT DSTITU, DSNOTA FROM TNOTAS WHERE CDNOTA = ?;",(codigo))
+	resultado = cursor.fetchmany(0)
+	x = resultado[0]
+	return x
 	
 	
 	
