@@ -22,11 +22,7 @@ def Tela_Exibe_Notas(codigo_Usu):
 		
 	def Edita(codigo):
 		if(Verifica_Nota_Existe(codigo)==1):
-			nota = Nota_Usuario(codigo)
-			#nota = "marco"
-			Entry_Titulo = nota[0]
-			Entry_Descricao = nota[0]
-			
+						
 			Label_Titulo = Label(janela, text="Título: ")
 			Label_Titulo.place(x=10, y=65)
 			
@@ -36,11 +32,31 @@ def Tela_Exibe_Notas(codigo_Usu):
 			Entry_Titulo = Entry(janela)
 			Entry_Titulo.place(x=70, y=65)
 			
-			Entry_Descricao = Entry(janela)
+			Entry_Descricao = Entry(janela,width=50)
 			Entry_Descricao.place(x=70, y=90)
+			
+			nota = Nota_Usuario(codigo)
+			
+			Entry_Titulo.insert(0,nota[0])#(insert  = "teste")
+			Entry_Descricao.insert(0,nota[1])#config(insert  = "teste")
+			
+			def Nota_Editada_Teste():
+				titulo = Entry_Titulo.get()
+				descricao = Entry_Descricao.get()
+				Nota_Editada(codigo, titulo, descricao)
+			
+			
+			botao_Confirmar_Edicao = Button(janela, width=15, text="Confirmar", command = Nota_Editada_Teste)
+			botao_Confirmar_Edicao.place(x=280, y=330)
+			
+			
+			
 		else:
 			ctypes.windll.user32.MessageBoxW(0, "Código não correspondente", "Erro", 0)
 			
+	def Nota_Editada(codigo, titulo, descricao):
+		Insere_Nota_Editada(codigo, titulo, descricao)
+	
 	janela = Tk()
 	janela.geometry("400x400+400+400")
 	

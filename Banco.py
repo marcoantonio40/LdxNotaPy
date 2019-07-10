@@ -109,9 +109,6 @@ def Data_Nota():
 def Insere_Nota(usuario, titulo, descricao):
 	con = Cria_Banco()
 	cursor = con.cursor()
-	print(usuario[0])
-	print(titulo)
-	print(descricao)
 	if usuario != "" and titulo != "" and descricao != "":
 		cursor.execute("INSERT INTO TNOTAS VALUES (?, ?, ?, ?, ?);",(Ultimo_Cod_Nota(), usuario[0],
 		titulo, descricao, Data_Nota()))
@@ -138,6 +135,14 @@ def Nota_Usuario(codigo):
 	x = resultado[0]
 	return x
 	
+def Insere_Nota_Editada(codigo, titulo, descricao):
+	con = Cria_Banco()
+	cursor = con.cursor()
+	if codigo != "" and titulo != "" and descricao != "":
+		cursor.execute("UPDATE TNOTAS SET DSTITU = ?, DSNOTA = ?, DTNOTA = ? WHERE CDNOTA = ?;",(titulo, descricao, Data_Nota(), codigo))
+		con.commit()
+	else:
+		ctypes.windll.user32.MessageBoxW(0, "Dados vazios", "Erro", 0)
 	
 	
 
