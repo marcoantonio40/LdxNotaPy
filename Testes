@@ -36,17 +36,19 @@ texto.place(x=100, y=10)
 ###########################################################################################
 
 def Cria_Banco():
-        caminho = texto.text
+        #caminho = texto.text
+        #caminho = caminho.replace("/","\\") 'C:\\Users\\Landix\\Desktop\\python\\dados.db3'
+        caminho = Pega_Banco()
         caminho = caminho.replace("/","\\")
-	if(os.path.exists('C:\\Users\\Landix\\Desktop\\python\\dados.db3')):
-		conn = sqlite3.connect('dados.db3')
-		print("Banco de dados existe!")
-		return conn
-	else:
-		print("Banco de dados não existe!")
+        if(os.path.exists(caminho)):
+                conn = sqlite3.connect('dados.db3')
+                print("Banco de dados existe!")
+                return conn
+        else:
+                print("Banco de dados não existe!")
 
 
-def Retorna_Resultado(tamanho):
+def Retorna_Resultado():
 	con = Cria_Banco()
 	cursor = con.cursor()
 	cursor.execute("SELECT * FROM TMVSPAGTO;")
@@ -76,13 +78,15 @@ def Pega_Caminho_Banco():
 
 
 
-botao_Entrar = Button(janela, width=20,text="Escolher banco", command = Pega_Caminho_Banco)
-botao_Entrar.place(x=50, y=100)
+#botao_Entrar = Button(janela, width=20,text="Escolher banco", command = Pega_Caminho_Banco)
+#botao_Entrar.place(x=50, y=100)
 
-botao_Criar_Usu = Button(janela, width=20,text="Gerar query", command = print("Gerar query"))
+botao_Criar_Usu = Button(janela, width=20,text="Gerar query", command = Retorna_Resultado)
 botao_Criar_Usu.place(x=50, y=130)
 
 botao_Sair = Button(janela, width=20, text="Sair", command = quit)
 botao_Sair.place(x=50, y=160)
+
+
 
 
