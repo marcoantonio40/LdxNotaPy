@@ -18,6 +18,13 @@ def Tela_Exibe_Notas(codigo_Usu):
 		else:
 			Edita(codigo)
             
+	
+	def Apagar_Nota():
+		codigo = Entry_Codigo.get()
+		if(codigo== ""):
+			ctypes.windll.user32.MessageBoxW(0, "Digite um código", "Alerta", 0)
+		else:
+			Apaga(codigo)
 		
 		
 	def Edita(codigo):
@@ -37,13 +44,14 @@ def Tela_Exibe_Notas(codigo_Usu):
 			
 			nota = Nota_Usuario(codigo)
 			
-			Entry_Titulo.insert(0,nota[0])#(insert  = "teste")
-			Entry_Descricao.insert(0,nota[1])#config(insert  = "teste")
+			Entry_Titulo.insert(0,nota[0])
+			Entry_Descricao.insert(0,nota[1])
 			
 			def Nota_Editada_Teste():
 				titulo = Entry_Titulo.get()
 				descricao = Entry_Descricao.get()
 				Nota_Editada(codigo, titulo, descricao)
+				
 			
 			
 			botao_Confirmar_Edicao = Button(janela, width=15, text="Confirmar", command = Nota_Editada_Teste)
@@ -54,8 +62,23 @@ def Tela_Exibe_Notas(codigo_Usu):
 		else:
 			ctypes.windll.user32.MessageBoxW(0, "Código não correspondente", "Erro", 0)
 			
+	
+	def Apaga(codigo):
+		if(Verifica_Nota_Existe(codigo)==1):
+			def Nota_Apagada_Teste():
+				Deleta_Nota(codigo)
+			
+			botao_Confirmar_Apagar = Button(janela, width=15, text="Confirmar", command = Nota_Apagada_Teste)
+			botao_Confirmar_Apagar.place(x=280, y=330)
+		
+	
+	
+	
+			
 	def Nota_Editada(codigo, titulo, descricao):
 		Insere_Nota_Editada(codigo, titulo, descricao)
+		Entry_Titulo.insert(0,"")
+		Entry_Descricao.insert(0,"")
 	
 	janela = Tk()
 	janela.geometry("400x400+400+400")
@@ -77,7 +100,7 @@ def Tela_Exibe_Notas(codigo_Usu):
 	botao_Editar_Nota = Button(janela, width=20, text="Editar", command = Editar_Nota)
 	botao_Editar_Nota.place(x=120, y=330)
 	
-	botao_Deletar_Nota = Button(janela, width=20, text="Deletar", command = print("Deletar Nota"))
+	botao_Deletar_Nota = Button(janela, width=20, text="Deletar", command = Apagar_Nota)
 	botao_Deletar_Nota.place(x=120, y=290)
 	
 	botao_Sair = Button(janela, width=20,text="SAIR", command = print("Sair"))

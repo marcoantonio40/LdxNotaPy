@@ -8,7 +8,9 @@ import sys
 #esse método é acionado quando o usuário clicar no botão botao_Entrar
 def Click_Entrar():
     login = Entry_Login.get()
-    senha = Entry_Senha.get()	
+    senha = Entry_Senha.get()
+    Entry_Login.insert(0,"")
+    Entry_Senha.insert(0,"")
     bt_click_Entrar(login,senha)
 
 def Click_Cadastra_Usuario():

@@ -34,6 +34,9 @@ def Tela_Cadastra():
 		login=Entry_Login_Usu.get()
 		senha=Entry_Senha_Usu.get()
 		Insere_Usuario(nome, login, senha)
+		Entry_Nome_Usu.insert(0,"")
+		Entry_Login_Usu.insert(0,"")
+		Entry_Senha_Usu.insert(0,"")
 
 	botao_Cadastrar_Usu = Button(janela, width=20,text="Cadastrar", command = Insere)
 	botao_Cadastrar_Usu.place(x=50, y=140)

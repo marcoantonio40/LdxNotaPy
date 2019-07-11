@@ -5,6 +5,8 @@ def Tela_Cadastrar_Nota(usuario):
 	def Insere():
 		titulo=Entry_Titulo.get()
 		descricao=Entry_Descricao.get()
+		Entry_Titulo.insert(0,"")
+		Entry_Descricao.insert(0,"")
 		Insere_Nota(usuario, titulo, descricao)
 	
 	janela = Tk()

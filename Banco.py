@@ -143,6 +143,15 @@ def Insere_Nota_Editada(codigo, titulo, descricao):
 		con.commit()
 	else:
 		ctypes.windll.user32.MessageBoxW(0, "Dados vazios", "Erro", 0)
+		
+def Deleta_Nota(codigo):
+	con = Cria_Banco()
+	cursor = con.cursor()
+	if codigo !="":
+		cursor.execute("DELETE FROM TNOTAS WHERE CDNOTA = ?;",(codigo))
+		con.commit()
+	else:
+		ctypes.windll.user32.MessageBoxW(0, "Dados vazios", "Erro", 0)
 	
 	
 
