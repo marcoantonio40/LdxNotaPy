@@ -1,7 +1,5 @@
 from tkinter import *
-from func_botao import bt_click_Entrar
-from func_botao import bt_click_Sair
-from func_botao import bt_click_Criar_Usu
+from func_botao import *
 import sys
 
 #Método utilizado para entrar na tela Tela_Exibe_Notas
