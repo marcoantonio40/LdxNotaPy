@@ -10,7 +10,7 @@ def Tela_Cadastrar_Nota(usuario):
 		Insere_Nota(usuario, titulo, descricao)
 	
 	janela = Tk()
-	janela.geometry("250x250+250+250")
+	janela.geometry("250x250+550+250")
 	
 	Label_Titulo = Label(janela, text="Título: ")
 	Label_Titulo.place(x=10, y=35)

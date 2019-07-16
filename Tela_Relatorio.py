@@ -27,9 +27,11 @@ def Exibe_Notas():
 	
 	
 	janela.mainloop()
-	
 
+def teste():
+        Exibe_Notas()
 
+teste()
 
 	
 	

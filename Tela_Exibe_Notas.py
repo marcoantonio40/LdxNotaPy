@@ -1,7 +1,7 @@
 from tkinter import *
 from Banco import *
 from Tela_Cadastrar_Nota import *
-from Tela_Relatorio import Exibe_Notas
+from Tela_Relatorio import *
 import ctypes
 
 def Tela_Exibe_Notas(codigo_Usu):
@@ -79,7 +79,7 @@ def Tela_Exibe_Notas(codigo_Usu):
 		Entry_Descricao.insert(0,"")
 	
 	janela = Tk()
-	janela.geometry("400x400+400+400")
+	janela.geometry("400x400+500+150")
 	
 	Label_Codigo = Label(janela, text = "Código")
 	Label_Codigo.place(x = 10, y = 35)

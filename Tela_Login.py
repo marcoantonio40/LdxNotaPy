@@ -50,5 +50,5 @@ botao_Sair.place(x=50, y=160)
 
 
 
-janela.geometry("250x250+250+250")
+janela.geometry("250x250+550+250")
 janela.mainloop()
