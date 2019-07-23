@@ -18,6 +18,8 @@ def bt_click_Criar_Usu():
 	
 def bt_click_Sair():
 	sys.exit(0)
+	
+
 
 
 

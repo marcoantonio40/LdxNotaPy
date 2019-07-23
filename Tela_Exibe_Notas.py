@@ -5,6 +5,7 @@ from Tela_Relatorio import *
 import ctypes
 
 def Tela_Exibe_Notas(codigo_Usu):
+	
 	def Limpa_Entry():
 		Entry_Codigo.delete(first=0,last=5)
 		Entry_Titulo.delete(first=0,last=50)
@@ -81,6 +82,9 @@ def Tela_Exibe_Notas(codigo_Usu):
 	janela = Tk()
 	janela.geometry("400x400+500+150")
 	
+	texto = Label(janela, text="LdxNota - Edição")
+	texto.place(x=140, y=10)
+	
 	Label_Codigo = Label(janela, text = "Código")
 	Label_Codigo.place(x = 10, y = 35)
 	
@@ -100,10 +104,10 @@ def Tela_Exibe_Notas(codigo_Usu):
 	Entry_Descricao.place(x=70, y=90)
 	
 	botao_Cadastrar_Nota = Button(janela, width=20,text="Cadastrar Nota", command = Tela_Cadastrar)
-	botao_Cadastrar_Nota.place(x=120, y=210)
+	botao_Cadastrar_Nota.place(x=125, y=210)
 
 	botao_Ver_Nota = Button(janela, width=20,text="Relatório de notas", command = Exibe_Notas)
-	botao_Ver_Nota.place(x=120, y=370)
+	botao_Ver_Nota.place(x=125, y=370)
 		
 	botao_Editar_Nota = Button(janela, width=20, text="Editar", command = Editar_Nota)
 	botao_Editar_Nota.place(x=125, y=330)
@@ -112,7 +116,7 @@ def Tela_Exibe_Notas(codigo_Usu):
 	botao_Deletar_Nota.place(x=125, y=290)
 	
 	botao_Sair = Button(janela, width=20,text="SAIR", command = fechar_Janela)
-	botao_Sair.place(x=120, y=250)
+	botao_Sair.place(x=125, y=250)
 	
 	
 	

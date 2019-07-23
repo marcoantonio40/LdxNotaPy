@@ -32,7 +32,7 @@ Label_Senha.place(x=10, y=60)
 Entry_Login = Entry(janela)
 Entry_Login.place(x=55, y=35)
 
-Entry_Senha = Entry(janela)
+Entry_Senha = Entry(janela, show='*')
 Entry_Senha.place(x=55, y=60)
 
 login=Entry_Login.get()
